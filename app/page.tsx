@@ -1,17 +1,32 @@
 import AcmeLogo from "@/app/ui/acme-logo"
-import { ArrowRightCircleIcon } from "@heroicons/react/24/outline"
-import Link from "next/link"
+import { ArrowRightCircleIcon, HomeIcon } from "@heroicons/react/24/outline"
 import { lusitana } from "@/app/ui/fonts"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Page() {
+  const dashboard = {
+    name: "Dashboard",
+    href: "/dashboard",
+  }
+
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-5 md:h-30">
-        <h1
-          className={`${lusitana.className} ml-3 text-l font-bold text-white md:text-2xl`}>
-          Muhammad Ridho | Web Developer | Front End Developer<a href=""></a>
-        </h1>
+        <Link key={dashboard.name} href={dashboard.href}>
+          <h1
+            className={`${lusitana.className} ml-3 text-l font-bold text-white md:text-2xl`}>
+            {dashboard.name}
+          </h1>
+        </Link>
+        {/* <Link
+        
+          className={
+            "ml-auto flex items-end gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-bold text-white md:gap-3 md:px-6 md:text-base"
+          }>
+          <LinkIcon className="w-6" />
+          <p className="hidden md:block">{dashboard.name}</p>
+        </Link> */}
       </div>
       <div className="mt-3 flex grow flex-col gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
