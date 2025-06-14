@@ -9,8 +9,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Your App Title</title>
-        {/* Add other meta tags as needed */}
+        <title>Muhammad Ridho</title>
       </head>
       <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
