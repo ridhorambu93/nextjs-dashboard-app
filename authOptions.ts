@@ -1,34 +1,16 @@
-import { NextAuthConfig } from "next-auth"
-import CredentialsProvider from "next-auth/providers/credentials"
-import { users } from "./app/lib/placeholder-data"
+import NextAuth from "next-auth"
+import GoogleProvider from "next-auth/providers/google"
 
-export const authOptions: NextAuthConfig = {
+const options = {
   providers: [
-    CredentialsProvider({
-      name: "Credentials",
-      credentials: {
-        email: { label: "Email", type: "text", placeholder: "Enter Email" },
-        password: { label: "Password", type: "password" },
-      },
-      async authorize(credentials, req) {
-        if (!credentials || !credentials.email || !credentials.password) {
-          return null
-        }
-        const user = users.find((item) => item.email === credentials.email)
-        if (user?.password === credentials.password) {
-          const modifiedUser = {
-            ...user,
-            accountStatus: "Active",
-          }
-
-          return modifiedUser
-        }
-        return null
-      },
+    GoogleProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
-  pages: {
-    signIn: "/signin",
-    error: "/autherror",
-  },
+  secret: process.env.SECRET, // To be added
 }
+
+const authHandler = NextAuth(options)
+
+export default authHandler
