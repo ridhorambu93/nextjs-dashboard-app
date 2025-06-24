@@ -1,5 +1,9 @@
 import AcmeLogo from "@/app/ui/acme-logo"
-import { ArrowRightCircleIcon, HomeIcon } from "@heroicons/react/24/outline"
+import {
+  ArrowRightCircleIcon,
+  HomeIcon,
+  ArrowRightIcon,
+} from "@heroicons/react/24/outline"
 import { lusitana } from "@/app/ui/fonts"
 import Image from "next/image"
 import Link from "next/link"
@@ -13,11 +17,11 @@ export default function Page() {
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-5 md:h-30">
-        <Link key={dashboard.name} href={dashboard.href}>
-          <h1
-            className={`${lusitana.className} ml-3 text-l font-bold text-white md:text-2xl`}>
-            {dashboard.name}
-          </h1>
+        <Link
+          href="https://github.com/ridhorambu93"
+          className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-blue-400 md:text-base">
+          <span>See more on my Github</span>{" "}
+          <ArrowRightCircleIcon className="w-5 md:w-6 font-bold" />
         </Link>
         {/* <Link
         
@@ -41,10 +45,9 @@ export default function Page() {
             <br /> I'm excited to share my learning experience with you!
           </p>
           <Link
-            href="https://github.com/ridhorambu93"
-            className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-blue-400 md:text-base">
-            <span>See more on Github</span>{" "}
-            <ArrowRightCircleIcon className="w-5 md:w-6 font-bold" />
+            href="/login"
+            className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base">
+            <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
